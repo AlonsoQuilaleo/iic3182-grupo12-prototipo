@@ -8,9 +8,12 @@
   --primario-oscuro: #163c6e;
   --primario-claro: #e7eff9;
   --acento: #e8771f;
+  --etapa-actual: #2563eb; /* parada actual de la línea de tiempo; en /tiempo se prueban otros */
   --hecho: #2d7a4c;
   --alerta-fondo: #fff2e2;
   --alerta-borde: #d9730d;
+  --alerta-boton: #b35a07;
+  --alerta-boton-oscuro: #8f4805;
   --sombra: 0 1px 2px rgba(28, 36, 48, 0.06), 0 4px 14px rgba(28, 36, 48, 0.06);
   --radio: 16px;
 }
@@ -34,7 +37,8 @@ body {
   display: flex; justify-content: space-between; align-items: center;
   padding: 12px 0; background: var(--fondo);
 }
-.marca-app { font-weight: 800; font-size: 20px; color: var(--primario); letter-spacing: 0.2px; }
+.marca-app { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: 20px; color: var(--primario); letter-spacing: 0.2px; }
+.marca-app svg { font-size: 24px; }
 .enlace-ayuda {
   min-height: 48px; padding: 8px 14px; border-radius: 999px;
   font-size: 18px; font-weight: 700; color: var(--primario);
@@ -134,7 +138,11 @@ button:focus-visible, input:focus-visible, summary:focus-visible {
 .bloque.info { background: var(--primario-claro); border-color: var(--primario); }
 .bloque.alerta { background: var(--alerta-fondo); border-color: var(--alerta-borde); }
 .bloque.discreto { background: var(--tarjeta); border-color: var(--borde); box-shadow: var(--sombra); }
+.bloque.alerta .boton { background: var(--alerta-boton); border-color: var(--alerta-boton); }
+.bloque.alerta .boton:hover { background: var(--alerta-boton-oscuro); border-color: var(--alerta-boton-oscuro); }
 .titulo-alerta { font-weight: 800; font-size: 19px; }
+.icono-alerta { color: var(--alerta-borde); vertical-align: -3px; }
+.icono-recordatorio { color: #8a6d00; font-size: 22px; vertical-align: -5px; }
 .vencida { color: var(--alerta-borde); font-weight: 700; }
 
 .codigo { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-weight: 700; letter-spacing: 1.5px; }
@@ -172,8 +180,8 @@ button:focus-visible, input:focus-visible, summary:focus-visible {
 }
 .hecho .parada { border-color: var(--hecho); background: var(--hecho); color: #fff; }
 .actual .parada {
-  border-color: var(--acento); background: var(--acento); color: #fff;
-  box-shadow: 0 0 0 6px rgba(232, 119, 31, 0.18);
+  border-color: var(--etapa-actual); background: var(--etapa-actual); color: #fff;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--etapa-actual) 18%, transparent);
 }
 .nombre { color: var(--suave); }
 .hecho .nombre { color: var(--texto); }
@@ -192,7 +200,7 @@ details p { margin: 8px 0 0; color: var(--suave); }
 }
 .panel-titulo {
   display: block; width: 100%; max-width: 440px; margin: 0 auto; padding: 10px 16px;
-  background: none; border: 0; color: #f0c000; font-weight: 700; font-size: 14px; text-align: left; cursor: pointer;
+  background: none; border: 0; color: #f0c000; font-weight: 700; font-size: 13px; text-align: left; cursor: pointer;
 }
 .panel-cuerpo { max-width: 440px; margin: 0 auto; padding: 0 16px 12px; display: flex; flex-direction: column; gap: 8px; }
 .panel-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }

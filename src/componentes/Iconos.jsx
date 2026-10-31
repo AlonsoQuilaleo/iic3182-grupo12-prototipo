@@ -1,13 +1,8 @@
+import { MdLocalShipping } from "react-icons/md";
+
 const base = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true };
 
-export const Camion = () => (
-  <svg {...base}>
-    <path d="M3 6h11v9H3z" />
-    <path d="M14 9h4l3 3v3h-7z" />
-    <circle cx="7" cy="17" r="2" />
-    <circle cx="17" cy="17" r="2" />
-  </svg>
-);
+export const Camion = () => <MdLocalShipping size={24} aria-hidden="true" />;
 
 export const Casa = () => (
   <svg {...base}>

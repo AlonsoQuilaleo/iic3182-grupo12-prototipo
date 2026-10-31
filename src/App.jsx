@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdPropaneTank } from "react-icons/md";
 import { USUARIO_REGISTRADO } from "./datos.js";
 import { PLAZO_MS, proximaApertura } from "./horario.js";
 import Entrada from "./componentes/Entrada.jsx";
@@ -98,7 +99,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="barra">
-        <span className="marca-app">Mi gas</span>
+        <span className="marca-app"><MdPropaneTank aria-hidden="true" /> Mi gas</span>
         {pantalla !== "ayuda" && pantalla !== "contacto" && (
           <button className="enlace-ayuda" onClick={() => irA("ayuda")}>
             ¿Necesitas ayuda?

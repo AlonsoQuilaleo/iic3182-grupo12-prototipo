@@ -43,3 +43,13 @@ export const diaYHora =(d, referencia) =>
   isoDia(d) === isoDia(referencia)
     ? `hoy a las ${hora(d)}`
     : `el ${d.toLocaleDateString("es-CL", { weekday: "long", day: "numeric", month: "long" })} a las ${hora(d)}`;
+
+// Duración en horas y minutos: «2 horas», «1 hora y 10 minutos», «45 minutos».
+export function duracion(ms) {
+  const total = Math.round(ms / 60000);
+  const h = Math.floor(total / 60), m = total % 60;
+  const partes = [];
+  if (h) partes.push(`${h} ${h === 1 ? "hora" : "horas"}`);
+  if (m || !h) partes.push(`${m} ${m === 1 ? "minuto" : "minutos"}`);
+  return partes.join(" y ");
+}
